@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 function CenterBlockFilter() {
   const [filterButtonAuthor, setFilterButtonAuthor] = useState(false)
@@ -8,7 +8,36 @@ function CenterBlockFilter() {
   const [filterButtonGenre, setFilterButtonGenre] = useState(false)
   console.log(filterButtonGenre)
 
+  const [activeCategory, setActiveCategory] = useState(' ')
 
+  const handleClickCategory = (categoryName) => {
+    console.log(categoryName)
+
+    // Название выбранной категории совпадает — ничего не делаем и выходим из функции
+    if (activeCategory === categoryName) return
+    if (categoryName === 'author') {
+      // меняем состояние других открытых окон на false, для автора — true;
+      setFilterButtonAuthor(!filterButtonAuthor)
+      setFilterButtonYear(filterButtonYear)
+      setFilterButtonGenre(filterButtonGenre)
+    }
+    // аналогично для других
+    if (categoryName === 'year') {
+      setFilterButtonYear(!filterButtonYear)
+      setFilterButtonAuthor(filterButtonAuthor)
+      setFilterButtonGenre(filterButtonGenre)
+    }
+
+    if (categoryName === 'genre') {
+      setFilterButtonGenre(!filterButtonGenre)
+      setFilterButtonAuthor(filterButtonAuthor)
+      setFilterButtonYear(filterButtonYear)
+    }
+
+    // задаем название категории
+
+    setActiveCategory(categoryName)
+  }
 
   return (
     <div>
@@ -17,21 +46,21 @@ function CenterBlockFilter() {
         <div className="filter__title">Искать по:</div>
         <div
           className="filter__button button-author _btn-text"
-          onClick={() => setFilterButtonAuthor(!filterButtonAuthor)}
+          onClick={() => handleClickCategory('author')}
           role="presentation"
         >
           исполнителю
         </div>
         <div
           className="filter__button button-year _btn-text"
-          onClick={() => setFilterButtonYear(!filterButtonYear)}
+          onClick={() => handleClickCategory('year')}
           role="presentation"
         >
           году выпуска
         </div>
         <div
           className="filter__button button-genre _btn-text"
-          onClick={() => setFilterButtonGenre(!filterButtonGenre)}
+          onClick={() => handleClickCategory('genre')}
           role="presentation"
         >
           жанру

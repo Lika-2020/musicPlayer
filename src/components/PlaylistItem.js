@@ -33,7 +33,6 @@ function PlaylistItem() {
           </div>
         </div>
       </div>
-
     </div>
   )
 }
