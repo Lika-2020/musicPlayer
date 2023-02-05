@@ -1,43 +1,44 @@
 import React, { useState } from 'react'
 
 function CenterBlockFilter() {
-  const [filterButtonAuthor, setFilterButtonAuthor] = useState(false)
+  /*  const [filterButtonAuthor, setFilterButtonAuthor] = useState(false)
   console.log(filterButtonAuthor)
   const [filterButtonYear, setFilterButtonYear] = useState(false)
   console.log(filterButtonYear)
   const [filterButtonGenre, setFilterButtonGenre] = useState(false)
-  console.log(filterButtonGenre)
+  console.log(filterButtonGenre) */
 
-  const [activeCategory, setActiveCategory] = useState(' ')
+  const [activeCategory, setActiveCategory] = useState('')
 
   const handleClickCategory = (categoryName) => {
-    console.log(categoryName)
-
-    // Название выбранной категории совпадает — ничего не делаем и выходим из функции
+  
     if (activeCategory === categoryName) return
-    if (categoryName === 'author') {
-      // меняем состояние других открытых окон на false, для автора — true;
-      setFilterButtonAuthor(!filterButtonAuthor)
-      setFilterButtonYear(filterButtonYear)
-      setFilterButtonGenre(filterButtonGenre)
-    }
-    // аналогично для других
-    if (categoryName === 'year') {
-      setFilterButtonYear(!filterButtonYear)
-      setFilterButtonAuthor(filterButtonAuthor)
-      setFilterButtonGenre(filterButtonGenre)
-    }
-
-    if (categoryName === 'genre') {
-      setFilterButtonGenre(!filterButtonGenre)
-      setFilterButtonAuthor(filterButtonAuthor)
-      setFilterButtonYear(filterButtonYear)
-    }
-
-    // задаем название категории
 
     setActiveCategory(categoryName)
   }
+
+  if (activeCategory === 'author') {
+    return (
+      <div className="modal">
+        <span>Michael Jackson</span>
+        <span>Michael Jackson</span>
+        <span>Michael Jackson</span>
+        <span>Michael Jackson</span>
+        <span>Michael Jackson</span>
+      </div>
+    )
+  }
+  console.log(activeCategory)
+
+ /*  activeCategory === 'author' ? (
+    <div className="modal">
+      <span>Michael Jackson</span>
+      <span>Michael Jackson</span>
+      <span>Michael Jackson</span>
+      <span>Michael Jackson</span>
+      <span>Michael Jackson</span>
+    </div>
+  ) : null */
 
   return (
     <div>
@@ -67,15 +68,7 @@ function CenterBlockFilter() {
         </div>
       </div>
 
-      <div className={filterButtonAuthor ? ['modal'] : ['hidden']}>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-      </div>
-
-      <div className={filterButtonYear ? ['year'] : ['hidden']}>
+      <div className="year">
         <label htmlFor="newer">
           <input id="newer" type="radio" />
           Более новые
@@ -85,8 +78,7 @@ function CenterBlockFilter() {
           Более старые
         </label>
       </div>
-
-      <div className={filterButtonGenre ? ['modal'] : ['hidden']}>
+      <div className="modal">
         <span>Хип-хоп</span>
         <span>Хип-хоп</span>
         <span>Хип-хоп</span>
