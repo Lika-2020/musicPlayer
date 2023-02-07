@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 function CenterBlockFilter() {
-  /*  const [filterButtonAuthor, setFilterButtonAuthor] = useState(false)
+  /* const [filterButtonAuthor, setFilterButtonAuthor] = useState(false)
   console.log(filterButtonAuthor)
-  const [filterButtonYear, setFilterButtonYear] = useState(false)
+   const [filterButtonYear, setFilterButtonYear] = useState(false)
   console.log(filterButtonYear)
   const [filterButtonGenre, setFilterButtonGenre] = useState(false)
   console.log(filterButtonGenre) */
@@ -11,34 +11,11 @@ function CenterBlockFilter() {
   const [activeCategory, setActiveCategory] = useState('')
 
   const handleClickCategory = (categoryName) => {
-  
     if (activeCategory === categoryName) return
 
     setActiveCategory(categoryName)
   }
 
-  if (activeCategory === 'author') {
-    return (
-      <div className="modal">
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-        <span>Michael Jackson</span>
-      </div>
-    )
-  }
-  console.log(activeCategory)
-
- /*  activeCategory === 'author' ? (
-    <div className="modal">
-      <span>Michael Jackson</span>
-      <span>Michael Jackson</span>
-      <span>Michael Jackson</span>
-      <span>Michael Jackson</span>
-      <span>Michael Jackson</span>
-    </div>
-  ) : null */
 
   return (
     <div>
@@ -47,7 +24,7 @@ function CenterBlockFilter() {
         <div className="filter__title">Искать по:</div>
         <div
           className="filter__button button-author _btn-text"
-          onClick={() => handleClickCategory('author')}
+          onClick={() => handleClickCategory('author')} 
           role="presentation"
         >
           исполнителю
@@ -68,22 +45,38 @@ function CenterBlockFilter() {
         </div>
       </div>
 
-      <div className="year">
-        <label htmlFor="newer">
-          <input id="newer" type="radio" />
-          Более новые
-        </label>
-        <label htmlFor="older">
-          <input id="older" type="radio" />
-          Более старые
-        </label>
-      </div>
-      <div className="modal">
-        <span>Хип-хоп</span>
-        <span>Хип-хоп</span>
-        <span>Хип-хоп</span>
-        <span>Хип-хоп</span>
-      </div>
+      {activeCategory === 'author' ? (
+        <div className="modal" role="presentation">
+          <span>Michael Jackson</span>
+          <span>Michael Jackson</span>
+          <span>Michael Jackson</span>
+          <span>Michael Jackson</span>
+          <span>Michael Jackson</span>
+        </div>
+      ) : null}
+
+      {activeCategory === 'year' ? (
+        <div className="year">
+          <label htmlFor="newer">
+            <input id="newer" type="radio" />
+            Более новые
+          </label>
+          <label htmlFor="older">
+            <input id="older" type="radio" />
+            Более старые
+          </label>
+        </div>
+      ) : null}
+
+      {activeCategory === 'genre' ? (
+        <div className="modal">
+          <span>Хип-Хоп</span>
+          <span>Хип-Хоп</span>
+          <span>Хип-Хоп</span>
+          <span>Хип-Хоп</span>
+          <span>Хип-Хоп</span>
+        </div>
+      ) : null}
     </div>
   )
 }

@@ -6,8 +6,9 @@
   "extends": [
     "plugin:react/recommended",
     "airbnb",
-    "plugin:react/jsx-runtime",
-    "prettier"
+    "prettier",
+    "plugin:react/jsx-runtime"
+  
  
   ],
   "parserOptions": {
@@ -19,13 +20,13 @@
   },
   "plugins": ["react"],
   "rules": {
+    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "error",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": 0,
     "react/destructuring-assignment": [0],
-    "no-console": "off",
-    "react/jsx-uses-vars": "error",
-    "react/jsx-uses-react": "error"
-  
+    "no-console": "off"
+
   }
   
   }
