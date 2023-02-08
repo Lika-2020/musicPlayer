@@ -1,6 +1,5 @@
-/* eslint-disable import/no-extraneous-dependencies */
-// eslint-disable-next-line no-unused-vars
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import React from 'react'
+// import SkeletonItems from './components/SkeletonItems'
 import MainNav from './components/MainNav'
 import CenterBlock from './components/CenterBlock'
 import CenterBlockFilter from './components/CenterBlockFilter'
@@ -13,37 +12,35 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <SkeletonTheme>
-      <div className="wrapper">
-        <div className="container">
-          <main className="main">
-            <MainNav />
-            <div className="main__centerblock centerblock">
-              <CenterBlock />
-              <CenterBlockFilter />
-              <div className="centerblock__content">
-                <CenterBlockContent />
-                <div className="content__playlist playlist">
-                  <PlaylistItem />
-                </div>
-              </div>
-            </div>
-            <div className="main__sidebar sidebar">
-              <MainSidebar />
-              <SideBarBlock />
-            </div>
-          </main>
-          <div className="bar">
-            <div className="bar__content'">
-              <div className="bar__player-block">
-                <BarPlayer />
+    <div className="wrapper">
+      <div className="container">
+        <main className="main">
+          <MainNav />
+          <div className="main__centerblock centerblock">
+            <CenterBlock />
+            <CenterBlockFilter />
+            <div className="centerblock__content">
+              <CenterBlockContent />
+              <div className="content__playlist playlist">
+                <PlaylistItem />
               </div>
             </div>
           </div>
-          <Footer />
+          <div className="main__sidebar sidebar">
+            <MainSidebar />
+            <SideBarBlock />
+          </div>
+        </main>
+        <div className="bar">
+          <div className="bar__content'">
+            <div className="bar__player-block">
+              <BarPlayer />
+            </div>
+          </div>
         </div>
+        <Footer />
       </div>
-    </SkeletonTheme>
+    </div>
   )
 }
 

@@ -1,7 +1,34 @@
-// import Skeleton from 'react-loading-skeleton'
+import React from 'react'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import SkeletonItems from './SkeletonItems'
+
 
 function PlaylistItem() {
+  const [isLoading, setLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false)
+    }, 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  if (isLoading)
+    return (
+      <SkeletonTheme baseColor="#bbb4b4" highlightColor="#444">
+        <SkeletonItems />
+        <SkeletonItems />
+        <SkeletonItems />
+        <SkeletonItems />
+        <SkeletonItems />
+        <p>
+          <Skeleton count={0} />
+        </p>
+      </SkeletonTheme>
+    )
   return (
+    
     <div>
       <div className="playlist__item">
         <div className="playlist__track track">
@@ -36,6 +63,11 @@ function PlaylistItem() {
         </div>
       </div>
     </div>
+
+    
+  
+    
   )
+
 }
 export default PlaylistItem

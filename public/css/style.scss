@@ -208,7 +208,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 51px;
+    margin-bottom: 10px;
   }
 
   &__content {
@@ -724,19 +724,24 @@ body {
 }
 
 .modal {
-  width: 148px;
-  height: 205px;
+  width: 248px;
+  height: 305px;
   background: #313131;
   border-radius: 12px;
+  padding-top: 36px;
+  padding-bottom: 36px;
+  margin-bottom: 36px;
+  overflow: auto;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  margin-left: 150px;
-  margin-top: 150px;
-  padding: 34px;
-  gap: 10px;
+  align-items: center;
+  gap: 38px;
   color: #ffffff;
-  overflow: auto;
+}
+
+.active {
+  color: #b672ff;
+  border-color: #b672ff;
 }
 
 .modal::-webkit-scrollbar {
@@ -755,10 +760,18 @@ body {
   height: 107px;
 }
 
+#newer,
+#older {
+  margin-right: 10px;
+}
+
 .year {
   width: 403px;
   height: 92px;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 28px;
   background: #313131;
   border-radius: 12px;
   color: #ffffff;
@@ -767,5 +780,16 @@ body {
   font-weight: 400;
   font-size: 20px;
   line-height: 24px;
-  
+}
+
+.skeleton-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.skeleton-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 250px;
 }
