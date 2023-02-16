@@ -2,12 +2,6 @@ import React, { useState } from 'react'
 import * as S from './CenterBlockFilter.styled'
 
 function CenterBlockFilter() {
-  // const [filterButton, setFilterButton] = useState(false)
-  // console.log(filterButton)
-  /* const [filterButtonYear, setFilterButtonYear] = useState(false)
-  console.log(filterButtonYear)
-  const [filterButtonGenre, setFilterButtonGenre] = useState(false)
-  console.log(filterButtonGenre) */
 
   const [activeCategory, setActiveCategory] = useState('')
 

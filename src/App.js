@@ -9,7 +9,6 @@ import SideBarBlock from './components/SideBarBlock'
 import BarPlayer from './components/BarPlayer'
 import Footer from './components/Footer'
 
-
 function App() {
   const [isOpen, setIsOpen] = useState(false)
 
@@ -39,9 +38,7 @@ function App() {
         <div className="bar">
           <div className="bar__content'">
             <div className="bar__player-block">
-          
               <BarPlayer />
-         
             </div>
           </div>
         </div>

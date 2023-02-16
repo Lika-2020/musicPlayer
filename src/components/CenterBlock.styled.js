@@ -12,12 +12,10 @@ export const SVGSearch = styled.svg`
   width: 17px;
   height: 18px;
   fill: none;
-
   path {
     stroke: white;
     stroke-linecap: round;
   }
-
   circle {
     stroke: white;
   }

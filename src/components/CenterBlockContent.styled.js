@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+
+
 export const ContentTitlePlaylistTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -22,7 +24,6 @@ export const PlaylistTitleColCol01 = styled(PlaylistTitleCol)`
  .col01 {
     width: 447px;
   }
-
 `
 
 export const PlaylistTitleColCol02 = styled(PlaylistTitleCol)`
@@ -45,16 +46,10 @@ export  const SVGWatch = styled.svg`
 width: 12px;
 height: 12px;
 fill: none;
-
 circle {
     stroke: #696969;
 }
-
 path {
     stroke: #696969;
 }
-
-
 `
-
-
