@@ -122,6 +122,18 @@ body {
     justify-content: space-between;
 }
 
+.skeleton-items {
+  display: flex;
+  flex-direction: row;
+}
+
+.skeleton-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 250px;
+}
+
 `
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
