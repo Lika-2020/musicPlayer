@@ -1,16 +1,19 @@
+import * as S from './CenterBlockContent.styled'
+
 function CenterBlockContent() {
   return (
     <div>
-      <div className="content__title playlist-title">
-        <div className="playlist-title__col col01">Трек</div>
-        <div className="playlist-title__col col02">ИСПОЛНИТЕЛЬ</div>
-        <div className="playlist-title__col col03">АЛЬБОМ</div>
-        <div className="playlist-title__col col04">
-          <svg className="playlist-title__svg" alt="time">
-            <use xlinkHref="img/icon/sprite.svg#icon-watch" />
-          </svg>
-        </div>
-      </div>
+      <S.ContentTitlePlaylistTitle>
+        <S.PlaylistTitleColCol01> Трек</S.PlaylistTitleColCol01>
+        <S.PlaylistTitleColCol02>ИСПОЛНИТЕЛЬ</S.PlaylistTitleColCol02>
+        <S.PlaylistTitleCol03>АЛЬБОМ</S.PlaylistTitleCol03>
+        <S.PlaylistTitleCol04>
+        <S.SVGWatch  viewBox="0 0 12 12" >
+        <circle cx="6" cy="6" r="5.5"/>
+        <path d="M4 6H6.5V2.5"/>
+        </S.SVGWatch>
+        </S.PlaylistTitleCol04>
+        </S.ContentTitlePlaylistTitle>
     </div>
   )
 }

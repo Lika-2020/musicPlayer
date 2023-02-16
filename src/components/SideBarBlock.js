@@ -1,12 +1,14 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
+
 import React from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import SkeletonSideBar from './SkeletonSideBar'
-
+import * as S from './SideBarBlock.styled'
+import Playlist01 from './public/img/playlist01.png'
+import Playlist02 from './public/img/playlist02.png'
+import Playlist03 from './public/img/playlist03.png'
 
 function SideBarBlock() {
-
   const [isLoading, setLoading] = React.useState(true)
 
   React.useEffect(() => {
@@ -19,7 +21,7 @@ function SideBarBlock() {
   if (isLoading)
     return (
       <SkeletonTheme baseColor="#bbb4b4" highlightColor="#444">
-    <SkeletonSideBar/>
+        <SkeletonSideBar />
         <p>
           <Skeleton count={0} />
         </p>
@@ -28,37 +30,25 @@ function SideBarBlock() {
 
   return (
     <div>
-      <div className="sidebar__block">
-        <div className="sidebar__list">
-          <div className="sidebar__item">
-            <a className="sidebar__link" href="#">
-              <img
-                className="sidebar__img"
-                src="img/playlist01.png"
-                alt="day's playlist"
-              />
-            </a>
-          </div>
-          <div className="sidebar__item">
-            <a className="sidebar__link" href="#">
-              <img
-                className="sidebar__img"
-                src="img/playlist02.png"
-                alt="day's playlist"
-              />
-            </a>
-          </div>
-          <div className="sidebar__item">
-            <a className="sidebar__link" href="#">
-              <img
-                className="sidebar__img"
-                src="img/playlist03.png"
-                alt="day's playlist"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
+      <S.SidebarBlock>
+        <S.SidebarList>
+          <S.SidebarItem>
+            <S.SidebarLink href="#">
+              <S.SideBarImg src={Playlist01} />
+            </S.SidebarLink>
+          </S.SidebarItem>
+          <S.SidebarItem>
+            <S.SidebarLink href="#">
+              <S.SideBarImg src={Playlist02} />
+            </S.SidebarLink>
+          </S.SidebarItem>
+          <S.SidebarItem>
+            <S.SidebarLink href="#">
+              <S.SideBarImg src={Playlist03} />
+            </S.SidebarLink>
+          </S.SidebarItem>
+        </S.SidebarList>
+      </S.SidebarBlock>
     </div>
   )
 }

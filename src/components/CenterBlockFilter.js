@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
+import * as S from './CenterBlockFilter.styled'
 
 function CenterBlockFilter() {
- // const [filterButton, setFilterButton] = useState(false)
- // console.log(filterButton)
+  // const [filterButton, setFilterButton] = useState(false)
+  // console.log(filterButton)
   /* const [filterButtonYear, setFilterButtonYear] = useState(false)
   console.log(filterButtonYear)
   const [filterButtonGenre, setFilterButtonGenre] = useState(false)
@@ -11,46 +12,58 @@ function CenterBlockFilter() {
   const [activeCategory, setActiveCategory] = useState('')
 
   const handleClickCategory = (categoryName) => {
-    if (activeCategory === categoryName) {setActiveCategory(''); return} 
+    if (activeCategory === categoryName) {
+      setActiveCategory('')
+      return
+    }
 
     setActiveCategory(categoryName)
   }
-  
 
   return (
     <div>
-      <h2 className="centerblock__h2">Треки</h2>
-      <div className="centerblock__filter filter">
-        <div className="filter__title">Искать по:</div>
-        <div className= {activeCategory === 'author' ? "filter__button button-author _btn-text active" : "filter__button button-author _btn-text"}
-
+      <S.CenterBlockH2>Треки</S.CenterBlockH2>
+      <S.CenterblockFilterFilter>
+        <S.FilterTitle>Искать по:</S.FilterTitle>
+        <S.FilterButton
+          className={
+            activeCategory === 'author'
+              ? 'filter__button button-author _btn-text active'
+              : 'filter__button button-author _btn-text'
+          }
           onClick={() => {
             handleClickCategory('author')
-      
           }}
           role="presentation"
         >
           исполнителю
-        </div>
-        <div
-          className={activeCategory === 'year' ? "filter__button button-year _btn-text active": "filter__button button-year _btn-text"}
+        </S.FilterButton>
+        <S.FilterButton
+          className={
+            activeCategory === 'year'
+              ? 'filter__button button-year _btn-text active'
+              : 'filter__button button-year _btn-text'
+          }
           onClick={() => handleClickCategory('year')}
           role="presentation"
         >
           году выпуска
-        </div>
-        <div
-          className={activeCategory === 'genre' ? "filter__button button-genre _btn-text active": "filter__button button-genre _btn-text"}
+        </S.FilterButton>
+        <S.FilterButton 
+          className={
+            activeCategory === 'genre'
+              ? 'filter__button button-genre _btn-text active'
+              : 'filter__button button-genre _btn-text'
+          }
           onClick={() => handleClickCategory('genre')}
           role="presentation"
         >
           жанру
-        </div>
-      </div>
+        </S.FilterButton>
+      </S.CenterblockFilterFilter>
 
       {activeCategory === 'author' ? (
-  
-           <div className="modal" role="presentation">
+        <S.Modal role="presentation">
           <span>Michael Jackson</span>
           <span>Michael Jackson</span>
           <span>Michael Jackson</span>
@@ -65,39 +78,31 @@ function CenterBlockFilter() {
           <span>Michael Jackson</span>
           <span>Michael Jackson</span>
           <span>Michael Jackson</span>
-        </div>
-        
-       
+        </S.Modal>
       ) : null}
 
       {activeCategory === 'year' ? (
-        <div className="year">
-     
-          <label htmlFor="newer">
-            <input id="newer" type="radio" />
+        <S.Year>
+          <S.RadioLabel htmlFor="newer">
+            <S.RadioInput id="newer" type="radio" />
             Более новые
-          </label>
-     
-       
-          <label htmlFor="older">
-            <input id="older" type="radio" />
+          </S.RadioLabel>
+
+          <S.RadioLabel htmlFor="older">
+            <S.RadioInput id="older" type="radio" />
             Более старые
-          </label>
-      
-          
-         
-          </div>
-        
+          </S.RadioLabel>
+        </S.Year>
       ) : null}
 
       {activeCategory === 'genre' ? (
-        <div className="modal">
+        <S.Modal>
           <span>Хип-Хоп</span>
           <span>Хип-Хоп</span>
           <span>Хип-Хоп</span>
           <span>Хип-Хоп</span>
           <span>Хип-Хоп</span>
-        </div>
+        </S.Modal>
       ) : null}
     </div>
   )

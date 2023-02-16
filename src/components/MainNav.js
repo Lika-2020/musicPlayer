@@ -1,45 +1,35 @@
-import React, { useState } from 'react'
 
+import * as S from './MainNav.styled'
+import logo from './public/img/logo.png'
 
-function MainNav() {
-
- const [navBurger, setNavBurger] = useState(false)
-
+function MainNav(props) {
   return (
     <div>
-      <nav className="main__nav nav">
-        <div className="nav__logo logo">
-          <img className="logo__image" src="img/logo.png" alt="logo" />
-        </div>
-        <div
-          className="nav__burger burger"
-          onClick={() => setNavBurger(!navBurger)}
-          role="presentation"
-        >
-          <span className="burger__line" />
-          <span className="burger__line" />
-          <span className="burger__line" />
-        </div>
-        <div className= { navBurger ? ['nav__menu.menu'] : ['hidden']}>
-          <ul className="menu__list">
-            <li className="menu__item">
-              <a href="http://" className="menu__link">
-                Главное
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="http://" className="menu__link">
-                Мой плейлист
-              </a>
-            </li>
-            <li className="menu__item">
-              <a href="http://" className="menu__link">
-                Войти
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
+      <S.MainNav>
+        <S.NavLogo>
+          <S.LogoImage src={logo} />
+        </S.NavLogo>
+        <S.NavBurger onClick={props.toggleMenu}>
+          <S.BurgerLine />
+          <S.BurgerLine />
+          <S.BurgerLine />
+        </S.NavBurger>
+        {props.isOpen && (
+          <S.NavMenu>
+            <S.MenuList>
+              <S.MenuItem>
+                <S.MenuLink href="https://">Главное</S.MenuLink>
+              </S.MenuItem>
+              <S.MenuItem>
+                <S.MenuLink href="https://">Мой плейлист</S.MenuLink>
+              </S.MenuItem>
+              <S.MenuItem>
+                <S.MenuLink href="https://">Войти</S.MenuLink>
+              </S.MenuItem>
+            </S.MenuList>
+          </S.NavMenu>
+        )}
+      </S.MainNav>
     </div>
   )
 }
