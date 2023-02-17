@@ -1,6 +1,6 @@
-
 import * as S from './MainNav.styled'
-import logo from './public/img/logo.png'
+import logo from '../img/logo.png'
+
 
 function MainNav(props) {
   return (
@@ -24,7 +24,7 @@ function MainNav(props) {
                 <S.MenuLink href="https://">Мой плейлист</S.MenuLink>
               </S.MenuItem>
               <S.MenuItem>
-                <S.MenuLink href="https://">Войти</S.MenuLink>
+                <S.MenuLink  href="https://">Войти</S.MenuLink>
               </S.MenuItem>
             </S.MenuList>
           </S.NavMenu>

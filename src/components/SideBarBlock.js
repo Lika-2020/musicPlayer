@@ -1,12 +1,11 @@
-
 import React from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import SkeletonSideBar from './SkeletonSideBar'
 import * as S from './SideBarBlock.styled'
-import Playlist01 from './public/img/playlist01.png'
-import Playlist02 from './public/img/playlist02.png'
-import Playlist03 from './public/img/playlist03.png'
+import Playlist01 from '../img/playlist01.png'
+import Playlist02 from '../img/playlist02.png'
+import Playlist03 from '../img/playlist03.png'
 
 function SideBarBlock() {
   const [isLoading, setLoading] = React.useState(true)
@@ -34,17 +33,17 @@ function SideBarBlock() {
         <S.SidebarList>
           <S.SidebarItem>
             <S.SidebarLink href="#">
-              <S.SideBarImg src={Playlist01} />
+              <S.SideBarImg src={Playlist01} alt="Playlist дня" />
             </S.SidebarLink>
           </S.SidebarItem>
           <S.SidebarItem>
             <S.SidebarLink href="#">
-              <S.SideBarImg src={Playlist02} />
+              <S.SideBarImg src={Playlist02} alt ="100 танцевальных хитов" />
             </S.SidebarLink>
           </S.SidebarItem>
           <S.SidebarItem>
             <S.SidebarLink href="#">
-              <S.SideBarImg src={Playlist03} />
+              <S.SideBarImg src={Playlist03} alt ="Инди-заряд" />
             </S.SidebarLink>
           </S.SidebarItem>
         </S.SidebarList>
