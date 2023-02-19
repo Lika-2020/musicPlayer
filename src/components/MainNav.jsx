@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom'
 import * as S from './MainNav.styled'
 import logo from '../img/logo.png'
-
 
 function MainNav(props) {
   return (
@@ -21,10 +21,10 @@ function MainNav(props) {
                 <S.MenuLink href="https://">Главное</S.MenuLink>
               </S.MenuItem>
               <S.MenuItem>
-                <S.MenuLink href="https://">Мой плейлист</S.MenuLink>
+                <Link to='/myTracks'>Мой плейлист</Link>
               </S.MenuItem>
               <S.MenuItem>
-                <S.MenuLink  href="https://">Войти</S.MenuLink>
+                <S.MenuLink href="https://">Войти</S.MenuLink>
               </S.MenuItem>
             </S.MenuList>
           </S.NavMenu>
