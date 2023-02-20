@@ -5,6 +5,26 @@ const PlayerButton = styled.div`
   display: flex;
   align-items: center;
 `
+
+export const TimeLIneInput = styled.input`
+  width: 100%;
+  background-color: #580ea2;
+  & {
+    -webkit-appearance: none;
+    margin-right: 15px;
+    margin-left: 50px;
+    height: 4px;
+    background: #580ea2;
+    border-radius: 5px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+`
+export const PauseButton = styled.button`
+  background-color: rgba(28, 28, 28, 0.5);
+`
+
 const IconButton = styled.div`
   &:hover {
     fill: transparent;
