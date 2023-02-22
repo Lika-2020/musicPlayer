@@ -4,53 +4,57 @@ import CenterBlock from '../../components/CenterBlock'
 import CenterBlockFilter from '../../components/CenterBlockFilter'
 import CenterBlockContent from '../../components/CenterBlockContent'
 import PlaylistItem from '../../components/PlaylistItem'
-import MainSidebar from '../../components/MainSidebar'
+import * as S from './main.styled'
+
 import SideBarBlock from '../../components/SideBarBlock'
+
 import BarPlayer from '../../components/BarPlayer'
 import Footer from '../../components/Footer'
 
-
-
 function Main() {
-    const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
-    return(
-        <div>
-            <div className="wrapper">
-        <div className="container">
+  return (
+    <div className='wrapper'>
+   
+        <S.Container>
           <main className="main">
             <MainNav isOpen={isOpen} toggleMenu={toggleMenu} />
-            <div className="main__centerblock centerblock">
-              <CenterBlock />
+
+       
+
+            <S.MainCenterBlock>
+            <CenterBlock />
               <CenterBlockFilter />
-              <div className="centerblock__content">
+
+              <S.CenterblockContent>
                 <CenterBlockContent />
-                <div className="content__playlist playlist">
+
+                <S.ContentPlaylistPlaylist>
                   <PlaylistItem />
-                </div>
-              </div>
-            </div>
-            <div className="main__sidebar sidebar">
-              <MainSidebar />
+                </S.ContentPlaylistPlaylist>
+              </S.CenterblockContent>
+            </S.MainCenterBlock>
+            <S.MainSidebarSidebar>
               <SideBarBlock />
-            </div>
+            </S.MainSidebarSidebar>
           </main>
-          <div className="bar">
-            <div className="bar__content'">
-              <div className="bar__player-block">
+          <S.Bar>
+            <S.BarContent>
+              <S.BarPlayerBlock>
                 <BarPlayer />
-              </div>
-            </div>
-          </div>
+              </S.BarPlayerBlock>
+            </S.BarContent>
+          </S.Bar>
           <Footer />
-        </div>
-      </div>
-        </div>
-    )
+        </S.Container>
+  
+    </div>
+  )
 }
 
 export default Main

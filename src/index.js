@@ -67,13 +67,6 @@ body {
   background-color: #383838;
 }
 
-.container {
-  max-width: 1920px;
-  height: 100vh;
-  margin: 0 auto;
-  position: relative;
-  background-color: #181818;
-}
 
 // ========== hover ========
 ._btn-text:hover {
@@ -81,47 +74,7 @@ body {
   color: #d9b6ff;
   cursor: pointer;
 }
-.main__centerblock {
-    width: auto;
-    flex-grow: 3;
-    padding: 20px 40px 20px 111px;
-}
 
-.centerblock__content {
-    display: flex;
-    flex-direction: column;
-}
-
-.content__playlist {
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-
-.main__sidebar  {
-    max-width: 418px;
-    padding: 20px 90px 20px 78px;
-}
-
-.bar {
-    position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: rgba(28, 28, 28, 0.5);
-}
-
-.bar__content {
-    display: flex;
-    flex-direction: column;
-}
-
-.bar__player-block {
-    height: 73px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 .skeleton-items {
   display: flex;

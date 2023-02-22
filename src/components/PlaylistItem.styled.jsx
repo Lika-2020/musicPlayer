@@ -81,11 +81,9 @@ export const TrackAuthorLink = styled.a`
   font-size: 16px;
   line-height: 24px;
   color: #ffffff;
-  text-align: left;
 `
 export const TrackAlbum = styled.div`
-  width: 245px;
-`
+      width: 245px;`
 
 export const TrackAlbumLink = styled.a`
   font-style: normal;

@@ -1,6 +1,7 @@
 import React from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+
 import SkeletonItems from './SkeletonItems'
 import * as S from './PlaylistItem.styled'
 
@@ -39,12 +40,15 @@ function PlaylistItem() {
                 <S.EllipseStrokeNote />
               </S.SvgIconNote>
             </S.TrackTitleImage>
+    
             <S.TrackTitleText>
               <S.TrackTitleLink href="http://">
                 Guilt <S.TrackTitleSpan />
               </S.TrackTitleLink>
             </S.TrackTitleText>
-          </S.TrackTitle>
+            </S.TrackTitle>
+       
+
           <S.TrackAuthor>
             <S.TrackAuthorLink href="http://">Nero</S.TrackAuthorLink>
           </S.TrackAuthor>

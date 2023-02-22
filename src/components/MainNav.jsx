@@ -9,6 +9,7 @@ function MainNav(props) {
         <S.NavLogo>
           <S.LogoImage src={logo} />
         </S.NavLogo>
+
         <S.NavBurger onClick={props.toggleMenu}>
           <S.BurgerLine />
           <S.BurgerLine />
@@ -21,7 +22,7 @@ function MainNav(props) {
                 <S.MenuLink href="https://">Главное</S.MenuLink>
               </S.MenuItem>
               <S.MenuItem>
-                <Link to='/myTracks'>Мой плейлист</Link>
+                <Link to="/myTracks">Мой плейлист</Link>
               </S.MenuItem>
               <S.MenuItem>
                 <S.MenuLink href="https://">Войти</S.MenuLink>

@@ -47,6 +47,7 @@ export const PlayerControls = styled.div`
 export const PlayerBtnPrev = styled(PlayerButton)``
 export const PlayerBtnPlayBtn = styled(PlayerButton)`
   margin-right: 23px;
+  margin-left: 23px;
 `
 
 export const SvgIconPrev = styled.svg`
@@ -147,7 +148,9 @@ export const PlayerBtnNext = styled(PlayerButton)`
 export const PlayerBtnRepeatBtnIcon = styled(IconButton)`
   margin-right: 24px;
 `
-export const PlayerBtnShuffleBtnIcon = styled(IconButton)``
+export const PlayerBtnShuffleBtnIcon = styled(IconButton)`
+margin-right: 23px`;
+
 export const PlayerTrackPlay = styled.div`
   display: flex;
   flex-direction: row;
@@ -274,7 +277,7 @@ export const BarVolumeBlockVolume = styled.div`
   width: auto;
   display: flex;
   align-items: center;
-  padding: 0 92px 0 0;
+  padding-left: 1200px;
 `
 export const VolumeContent = styled.div`
   display: flex;
@@ -295,6 +298,10 @@ export const VolumeProgressLine = styled.input.attrs({
   type: 'range',
   name: 'range',
 })`
+
+height: 2px;
+
+
   &.btn {
     cursor: pointer;
   }
