@@ -60,12 +60,6 @@ body {
   color: #ffffff;
 }
 
-.wrapper {
-  width: 100%;
-  min-height: 100%;
-  overflow: hidden;
-  background-color: #383838;
-}
 
 
 // ========== hover ========
@@ -88,7 +82,11 @@ body {
   margin-top: 250px;
 }
 
+
+
 `
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(

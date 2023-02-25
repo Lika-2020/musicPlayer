@@ -19,41 +19,37 @@ function Main() {
   }
 
   return (
-    <div className='wrapper'>
-   
-        <S.Container>
-          <main className="main">
-            <MainNav isOpen={isOpen} toggleMenu={toggleMenu} />
+    <S.Wrapper>
+      <S.Container>
+        <S.Main style={{ display: 'flex'  }}>
+          <MainNav isOpen={isOpen} toggleMenu={toggleMenu} />
 
-       
-
-            <S.MainCenterBlock>
+          <S.MainCenterBlock>
             <CenterBlock />
-              <CenterBlockFilter />
+            <CenterBlockFilter />
 
-              <S.CenterblockContent>
-                <CenterBlockContent />
+            <S.CenterblockContent>
+              <CenterBlockContent />
 
-                <S.ContentPlaylistPlaylist>
-                  <PlaylistItem />
-                </S.ContentPlaylistPlaylist>
-              </S.CenterblockContent>
-            </S.MainCenterBlock>
-            <S.MainSidebarSidebar>
-              <SideBarBlock />
-            </S.MainSidebarSidebar>
-          </main>
-          <S.Bar>
-            <S.BarContent>
-              <S.BarPlayerBlock>
-                <BarPlayer />
-              </S.BarPlayerBlock>
-            </S.BarContent>
-          </S.Bar>
-          <Footer />
-        </S.Container>
-  
-    </div>
+              <S.ContentPlaylistPlaylist>
+                <PlaylistItem />
+              </S.ContentPlaylistPlaylist>
+            </S.CenterblockContent>
+          </S.MainCenterBlock>
+          <S.MainSidebarSidebar>
+            <SideBarBlock />
+          </S.MainSidebarSidebar>
+        </S.Main>
+        <S.Bar>
+          <S.BarContent>
+            <S.BarPlayerBlock>
+              <BarPlayer />
+            </S.BarPlayerBlock>
+          </S.BarContent>
+        </S.Bar>
+        <Footer />
+      </S.Container>
+    </S.Wrapper>
   )
 }
 

@@ -15,7 +15,7 @@ function CenterBlockFilter() {
   }
 
   return (
-    <div>
+    <>
       <S.CenterBlockH2>Треки</S.CenterBlockH2>
       <S.CenterblockFilterFilter>
         <S.FilterTitle>Искать по:</S.FilterTitle>
@@ -98,7 +98,7 @@ function CenterBlockFilter() {
           <span>Хип-Хоп</span>
         </S.Modal>
       ) : null}
-    </div>
+    </>
   )
 }
 

@@ -18,7 +18,7 @@ const PlaylistTitleCol = styled.div`
 `
 
 export const PlaylistTitleColCol01 = styled(PlaylistTitleCol)`
-margin-right: 300px;
+margin-right: 480px;
 
 
   .col01 {
@@ -27,14 +27,14 @@ margin-right: 300px;
 `
 
 export const PlaylistTitleColCol02 = styled(PlaylistTitleCol)`
-margin-right: 200px;
+margin-right: 280px;
   .col02 {
     width: 321px;
   }
 `
 
 export const PlaylistTitleCol03 = styled(PlaylistTitleCol)`
-margin-right: 200px;
+margin-right: 260px;
   .col03 {
     width: 245px;
   }

@@ -15,12 +15,14 @@ export const Container = styled.div`
   background-color: #181818;
 `
 
-export const Main = styled.div``
+export const Main = styled.div`
+
+`
 
 export const MainCenterBlock = styled.div`
   width: auto;
-  flex-grow: 3;
   padding: 20px 40px 20px 111px;
+  grid-column: 1 / 2;
 `
 
 export const CenterblockContent = styled.div`
@@ -37,6 +39,7 @@ export const ContentPlaylistPlaylist = styled.div`
 export const MainSidebarSidebar = styled.div`
   max-width: 418px;
   padding: 20px 90px 20px 78px;
+  padding-right: 150px;
 `
 export const Bar = styled.div`
   position: absolute;
@@ -52,9 +55,8 @@ export const BarContent = styled.div`
 `
 
 export const BarPlayerBlock = styled.div`
-    height: 73px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;`
-
-
+  height: 73px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`

@@ -7,6 +7,8 @@ export const MainNav = styled.nav`
   width: 244px;
   background-color: #181818;
   padding: 20px 0 20px 36px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 `
 export const LogoImage = styled.img.attrs({ alt: 'logo' })`
    &.logo__image {
