@@ -10,19 +10,33 @@ import SideBarBlock from '../../components/SideBarBlock'
 
 import BarPlayer from '../../components/BarPlayer'
 import Footer from '../../components/Footer'
+import { ThemeProvider, ThemeContext } from '../../ThemeContext'
+
+
 
 function Main() {
   const [isOpen, setIsOpen] = useState(false)
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
   return (
-    <S.Wrapper>
-      <S.Container>
-        <S.Main style={{ display: 'flex'  }}>
-          <MainNav isOpen={isOpen} toggleMenu={toggleMenu} />
+    
+  
+   
+    <S.Wrapper  >
+             <ThemeProvider>
+  <ThemeContext.Consumer>
+  
+      {({ theme, isLightTheme }) => (
+  <S.Container style={{ color: theme.color, background: theme.background, isLightTheme, moonIcon: theme.moonIcon, sunIcon: theme.sunIcon }}>
+
+    
+        <S.Main >
+          
+          <MainNav isOpen={isOpen} toggleMenu={toggleMenu} theme={theme} />
 
           <S.MainCenterBlock>
             <CenterBlock />
@@ -32,7 +46,7 @@ function Main() {
               <CenterBlockContent />
 
               <S.ContentPlaylistPlaylist>
-                <PlaylistItem />
+                <PlaylistItem theme={theme} />
               </S.ContentPlaylistPlaylist>
             </S.CenterblockContent>
           </S.MainCenterBlock>
@@ -40,6 +54,7 @@ function Main() {
             <SideBarBlock />
           </S.MainSidebarSidebar>
         </S.Main>
+          
         <S.Bar>
           <S.BarContent>
             <S.BarPlayerBlock>
@@ -49,7 +64,15 @@ function Main() {
         </S.Bar>
         <Footer />
       </S.Container>
+       )}
+       </ThemeContext.Consumer>
+    </ThemeProvider>
+ 
     </S.Wrapper>
+   
+          
+
+
   )
 }
 

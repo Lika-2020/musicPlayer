@@ -3,6 +3,8 @@ import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App'
 
+
+
 const Global = createGlobalStyle`
 * {
   margin: 0;
@@ -57,7 +59,7 @@ body {
   width: 100%;
   height: 100%;
   font-family: 'StratosSkyeng', sans-serif;
-  color: #ffffff;
+  color: white;
 }
 
 
@@ -86,12 +88,14 @@ body {
 
 `
 
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
+
   <BrowserRouter>
     <Global />
-    <App />
+
+    <App  />
+   
   </BrowserRouter>
+
 )

@@ -16,8 +16,10 @@ export const Container = styled.div`
 `
 
 export const Main = styled.div`
+display: flex`
 
-`
+
+
 
 export const MainCenterBlock = styled.div`
   width: auto;

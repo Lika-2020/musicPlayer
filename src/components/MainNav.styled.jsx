@@ -92,3 +92,20 @@ export const SVGSearch = styled.svg`
     color: #ffffff;
   }
 `
+
+ export const SvgContainer = styled.div`
+ margin-right: 50px;
+`;
+
+ export const Circle = styled.svg`
+  width: 50px;
+  height: 50px;
+
+`;
+
+ export const Path = styled.svg`
+  width: 17px;
+  height: 18px;
+
+  
+`;

@@ -8,6 +8,7 @@ import Registration from './Pages/registration/registration'
 
 
 function AppRouters() {
+
   return (
     <Routes>
       <Route path="/registration" element={<Registration />} />

@@ -1,6 +1,8 @@
 import React from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Link } from 'react-router-dom'
+
 
 import SkeletonItems from './SkeletonItems'
 import * as S from './PlaylistItem.styled'
@@ -50,7 +52,7 @@ function PlaylistItem() {
        
 
           <S.TrackAuthor>
-            <S.TrackAuthorLink href="http://">Nero</S.TrackAuthorLink>
+            <Link to="http://">Nero</Link>
           </S.TrackAuthor>
           <S.TrackAlbum>
             <S.TrackAlbumLink href="http://">Welcome Reality</S.TrackAlbumLink>
