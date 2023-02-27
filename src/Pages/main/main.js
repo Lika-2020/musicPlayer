@@ -4,53 +4,78 @@ import CenterBlock from '../../components/CenterBlock'
 import CenterBlockFilter from '../../components/CenterBlockFilter'
 import CenterBlockContent from '../../components/CenterBlockContent'
 import PlaylistItem from '../../components/PlaylistItem'
-import MainSidebar from '../../components/MainSidebar'
+import * as S from './main.styled'
+
 import SideBarBlock from '../../components/SideBarBlock'
+
 import BarPlayer from '../../components/BarPlayer'
 import Footer from '../../components/Footer'
+import { ThemeProvider, ThemeContext } from '../../ThemeContext'
+import MainSidebar from '../../components/MainSidebar'
 
 
 
 function Main() {
-    const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
-    return(
-        <div>
-            <div className="wrapper">
-        <div className="container">
-          <main className="main">
-            <MainNav isOpen={isOpen} toggleMenu={toggleMenu} />
-            <div className="main__centerblock centerblock">
-              <CenterBlock />
-              <CenterBlockFilter />
-              <div className="centerblock__content">
-                <CenterBlockContent />
-                <div className="content__playlist playlist">
-                  <PlaylistItem />
-                </div>
-              </div>
-            </div>
-            <div className="main__sidebar sidebar">
-              <MainSidebar />
-              <SideBarBlock />
-            </div>
-          </main>
-          <div className="bar">
-            <div className="bar__content'">
-              <div className="bar__player-block">
-                <BarPlayer />
-              </div>
-            </div>
-          </div>
-          <Footer />
-        </div>
-      </div>
-        </div>
-    )
+  return (
+    
+  
+   
+    <S.Wrapper  >
+             <ThemeProvider>
+  <ThemeContext.Consumer>
+  
+      {({ theme, isLightTheme }) => (
+  <S.Container style={{ color: theme.color, background: theme.background, isLightTheme, moonIcon: theme.moonIcon, sunIcon: theme.sunIcon }}>
+
+    
+        <S.Main >
+          
+          <MainNav isOpen={isOpen} toggleMenu={toggleMenu}/>
+
+          <S.MainCenterBlock>
+            <CenterBlock />
+            <CenterBlockFilter />
+
+            <S.CenterblockContent>
+              <CenterBlockContent />
+
+              <S.ContentPlaylistPlaylist>
+                <PlaylistItem />
+              </S.ContentPlaylistPlaylist>
+            </S.CenterblockContent>
+          </S.MainCenterBlock>
+          <S.MainSidebarSidebar>
+            <MainSidebar />
+            <SideBarBlock />
+          </S.MainSidebarSidebar>
+        </S.Main>
+          
+        <S.Bar>
+          <S.BarContent>
+            <S.BarPlayerBlock>
+              <BarPlayer />
+            </S.BarPlayerBlock>
+          </S.BarContent>
+        </S.Bar>
+        <Footer />
+      </S.Container>
+       )}
+       </ThemeContext.Consumer>
+    </ThemeProvider>
+ 
+    </S.Wrapper>
+   
+          
+
+
+  )
 }
 
 export default Main

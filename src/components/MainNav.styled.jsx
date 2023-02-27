@@ -7,6 +7,8 @@ export const MainNav = styled.nav`
   width: 244px;
   background-color: #181818;
   padding: 20px 0 20px 36px;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
 `
 export const LogoImage = styled.img.attrs({ alt: 'logo' })`
    &.logo__image {
@@ -56,3 +58,54 @@ export const MenuLink = styled.a`
   line-height: 24px;
 `
 
+export const CenterBlockSearch = styled.div`
+  width: 100%;
+  border-bottom: 1px solid #4e4e4e;
+  margin-bottom: 51px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+export const SVGSearch = styled.svg`
+  width: 17px;
+  height: 18px;
+  fill: none;
+  path {
+    stroke: white;
+    stroke-linecap: round;
+  }
+  circle {
+    stroke: white;
+  }
+`
+
+ export const SearchInput = styled.input`
+  &.search__text {
+    flex-grow: 100;
+    background-color: transparent;
+    border: none;
+    padding: 13px 10px 14px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #ffffff;
+  }
+`
+
+ export const SvgContainer = styled.div`
+ margin-right: 50px;
+`;
+
+ export const Circle = styled.svg`
+  width: 50px;
+  height: 50px;
+
+`;
+
+ export const Path = styled.svg`
+  width: 17px;
+  height: 18px;
+
+  
+`;

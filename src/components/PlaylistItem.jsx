@@ -1,11 +1,16 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useContext } from 'react'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import SkeletonItems from './SkeletonItems'
 import * as S from './PlaylistItem.styled'
+import StyledLink from '../StyledLink'
+import { ThemeContext, themes } from '../ThemeContext'
 
 function PlaylistItem() {
   const [isLoading, setLoading] = React.useState(true)
+  const { theme } = useContext(ThemeContext)
+  const isLightTheme = theme === themes.light
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
@@ -27,12 +32,19 @@ function PlaylistItem() {
         </p>
       </SkeletonTheme>
     )
+
   return (
     <div>
-      <S.PlaylistItem>
+      <S.PlaylistItem
+        style={{
+          background: theme.background,
+        }}
+      >
         <S.PlaylistTrackTrack>
           <S.TrackTitle>
-            <S.TrackTitleImage>
+            <S.TrackTitleImage
+              style={{ background: isLightTheme ? '#F6F4F4' : ' #313131' }}
+            >
               <S.SvgIconNote viewBox="0 0 20 19">
                 <S.StrokeNote d="M8 16V1.9697L19 1V13" />
                 <S.EllipseNote />
@@ -40,13 +52,15 @@ function PlaylistItem() {
               </S.SvgIconNote>
             </S.TrackTitleImage>
             <S.TrackTitleText>
-              <S.TrackTitleLink href="http://">
+              <StyledLink to="/" theme={theme}>
                 Guilt <S.TrackTitleSpan />
-              </S.TrackTitleLink>
+              </StyledLink>
             </S.TrackTitleText>
           </S.TrackTitle>
           <S.TrackAuthor>
-            <S.TrackAuthorLink href="http://">Nero</S.TrackAuthorLink>
+            <StyledLink to="/" theme={theme}>
+              Nero
+            </StyledLink>
           </S.TrackAuthor>
           <S.TrackAlbum>
             <S.TrackAlbumLink href="http://">Welcome Reality</S.TrackAlbumLink>

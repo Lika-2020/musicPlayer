@@ -13,11 +13,11 @@ export const SVGSearch = styled.svg`
   height: 18px;
   fill: none;
   path {
-    stroke: white;
+    stroke: ${({ theme }) => theme.stroke};
     stroke-linecap: round;
   }
   circle {
-    stroke: white;
+    stroke: ${({ theme }) => theme.stroke};
   }
 `
 

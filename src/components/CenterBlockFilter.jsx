@@ -1,9 +1,13 @@
-import React, { useState } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useContext } from 'react'
 import * as S from './CenterBlockFilter.styled'
+import { ThemeContext, themes } from '../ThemeContext'
 
 function CenterBlockFilter() {
-
   const [activeCategory, setActiveCategory] = useState('')
+
+  const { theme } = useContext(ThemeContext)
+  const isLightTheme = theme === themes.light
 
   const handleClickCategory = (categoryName) => {
     if (activeCategory === categoryName) {
@@ -19,7 +23,7 @@ function CenterBlockFilter() {
       <S.CenterBlockH2>Треки</S.CenterBlockH2>
       <S.CenterblockFilterFilter>
         <S.FilterTitle>Искать по:</S.FilterTitle>
-        <S.FilterButton
+        <S.FilterButton theme={theme}
           className={
             activeCategory === 'author'
               ? 'filter__button button-author _btn-text active'
@@ -32,7 +36,7 @@ function CenterBlockFilter() {
         >
           исполнителю
         </S.FilterButton>
-        <S.FilterButton
+        <S.FilterButton  theme={theme}
           className={
             activeCategory === 'year'
               ? 'filter__button button-year _btn-text active'
@@ -43,7 +47,7 @@ function CenterBlockFilter() {
         >
           году выпуска
         </S.FilterButton>
-        <S.FilterButton 
+        <S.FilterButton  theme={theme}
           className={
             activeCategory === 'genre'
               ? 'filter__button button-genre _btn-text active'

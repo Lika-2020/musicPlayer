@@ -8,6 +8,7 @@ export const ContentTitlePlaylistTitle = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 24px;
+  margin-top: 50px;
 `
  const PlaylistTitleCol = styled.div`
   font-style: normal;

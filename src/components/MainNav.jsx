@@ -1,13 +1,26 @@
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons'
 import * as S from './MainNav.styled'
 import logo from '../img/logo.png'
+import StyledLink from '../StyledLink'
+import { ThemeContext, themes } from '../ThemeContext'
+import logoWhite from '../img/logoWhite.jpg'
 
 function MainNav(props) {
+  const { theme, toggleTheme } = useContext(ThemeContext)
+  const isLightTheme = theme === themes.light
+
   return (
     <div>
-      <S.MainNav>
+      <S.MainNav
+        style={{
+          background: theme.background,
+        }}
+      >
         <S.NavLogo>
-          <S.LogoImage src={logo} />
+          <S.LogoImage src= {isLightTheme ? logoWhite : logo } alt="Logo" />
         </S.NavLogo>
         <S.NavBurger onClick={props.toggleMenu}>
           <S.BurgerLine />
@@ -18,15 +31,27 @@ function MainNav(props) {
           <S.NavMenu>
             <S.MenuList>
               <S.MenuItem>
-                <S.MenuLink href="https://">Главное</S.MenuLink>
+                <StyledLink to="/" theme={theme}>
+                  Главное
+                </StyledLink>
               </S.MenuItem>
               <S.MenuItem>
-                <Link to='/myTracks'>Мой плейлист</Link>
+                <StyledLink to="/myTracks" theme={theme}>
+                  Мой плейлист
+                </StyledLink>
               </S.MenuItem>
               <S.MenuItem>
-                <S.MenuLink href="https://">Войти</S.MenuLink>
+                <StyledLink to="/" theme={theme}>
+                  Войти
+                </StyledLink>
               </S.MenuItem>
             </S.MenuList>
+            <S.SvgContainer
+              onClick={() => toggleTheme()}
+              isLightTheme={isLightTheme}
+            >
+              <FontAwesomeIcon icon={isLightTheme ? faSun : faMoon} />
+            </S.SvgContainer>
           </S.NavMenu>
         )}
       </S.MainNav>
