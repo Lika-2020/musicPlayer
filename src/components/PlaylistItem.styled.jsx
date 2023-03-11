@@ -18,6 +18,7 @@ export const TrackTitle = styled.div`
   flex-direction: row;
   align-items: center;
   width: 447px;
+  color: black;
 `
 export const TrackTitleImage = styled.div`
   width: 51px;

@@ -1,7 +1,12 @@
 import ReactDOM from 'react-dom/client'
 import { createGlobalStyle } from 'styled-components'
 import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { QueryClient, QueryClientProvider } from 'react-query'
 import App from './App'
+import { storeLogin } from './Pages/login/store/storeLogin'
+
+const queryClient = new QueryClient()
 
 const Global = createGlobalStyle`
 * {
@@ -139,8 +144,12 @@ body {
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <BrowserRouter>
-    <Global />
-    <App />
-  </BrowserRouter>
+  <QueryClientProvider client={queryClient}>
+    <Provider store={storeLogin}>
+      <BrowserRouter>
+        <Global />
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </QueryClientProvider>
 )

@@ -1,42 +1,46 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import Cookies from 'js-cookie'
+import { useDispatch, connect } from 'react-redux'
 import * as S from './styleRegistr'
 import LogoWhite from '../../img/logoWhite.jpg'
+import { setToken, fetchToken } from './store/authSlice'
+import { useRegisterMutation } from './store/api'
 
 function Register() {
   const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [repeatPassword, setRepeatPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
   const navigate = useNavigate()
 
-  const handleSubmit = (event) => {
+  const dispatch = useDispatch()
+  const [register, { isLoading }] = useRegisterMutation()
+  console.log(register)
+
+  const handleSubmit = async (event) => {
     event.preventDefault()
+    dispatch(
+      fetchToken({
+        username: 'username',
+        email: 'example@abc.com',
+        password: 'password',
+      })
+    )
     if (password !== repeatPassword) {
       setErrorMessage('Passwords do not match')
     } else {
-      Cookies.set('username', username)
-      Cookies.set('password', password)
-      navigate('/login')
+      try {
+        const result = await register({ username, email, password })
+        const { data } = result
+
+        dispatch(setToken(data.token))
+        navigate('/login')
+      } catch (error) {
+        setErrorMessage('Registration failed')
+      }
     }
   }
-
-  <S.MainDiv>
-    <S.LoginDiv>
-      <S.LogoDiv>
-        <S.LogoImg src={LogoWhite} alt="logo" />
-      </S.LogoDiv>
-      <S.LogPassDiv>
-        <S.LoginInput type="text" placeholder="Логин" />
-        <S.PasswordInput type="text" placeholder="Пароль" />
-        <S.AgainPasswordInput type="text" placeholder="Повторите пароль" />
-      </S.LogPassDiv>
-      <S.ButtonsDiv>
-        <S.EnterButton>Зарегистрироваться</S.EnterButton>
-      </S.ButtonsDiv>
-    </S.LoginDiv>
-  </S.MainDiv>
 
   return (
     <S.MainDiv>
@@ -52,6 +56,14 @@ function Register() {
               type="text"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
+            />
+
+            <S.LoginInput
+              placeholder="Почта"
+              id="email"
+              type="email"
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
 
             <S.PasswordInput
@@ -72,13 +84,15 @@ function Register() {
           </form>
         </S.LogPassDiv>
         <S.ButtonsDiv>
-          <S.EnterButton onClick={handleSubmit}>Зарегистрироваться</S.EnterButton>
+          <S.EnterButton disabled={isLoading} onClick={handleSubmit}>
+            Зарегистрироваться
+          </S.EnterButton>
         </S.ButtonsDiv>
 
         {errorMessage && (
           <div
             style={{
-              color: 'black',
+              color: 'red',
             }}
           >
             {errorMessage}
@@ -89,4 +103,13 @@ function Register() {
   )
 }
 
-export default Register
+const mapStateToProps = (state) => ({
+  user: state.user,
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  setToken: (token) => dispatch(setToken(token)),
+  fetchToken: (credentials) => dispatch(fetchToken(credentials)),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)
