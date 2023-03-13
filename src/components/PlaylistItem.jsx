@@ -14,8 +14,9 @@ import {
   addFavoriteTrack,
   removeFromFavorite,
 } from './PlaylistItemAPI/favoriteSlice'
+import { selectToken } from '../Pages/registration/store/authSlice'
 
-function PlaylistItem({ track }) {
+function PlaylistItem(track) {
   const [isLoading, setLoading] = useState(true)
   const [errorMessage] = useState('')
   const { theme } = useContext(ThemeContext)
@@ -23,22 +24,27 @@ function PlaylistItem({ track }) {
 
   const { data: tracks = [] } = useGetAllTracksQuery() // массив для добавления треков
 
-  const [toggleFavorite] = useToggleFavoriteMutation() // добавление трека в избранное
+  const accessToken = selectToken;
+
+const [toggleFavorite] = useToggleFavoriteMutation(undefined, {   // добавление трека в избранное и передача токена
+  arg: accessToken,
+})
+
 
   // флаг добавления в избранное
   const [likeColor, setLikeColor] = useState(true) // цвет иконки "избранное"
 
   const favoriteTracks = useSelector((state) => state.favorite) || [] // получить список избранных треков из store
 
-   const isFavorite =
+ const isFavorite =
     Array.isArray(favoriteTracks) &&
     favoriteTracks.some((favTrack) => favTrack.id === track.id) // check if favoriteTracks is an array before calling the some <method></method> */
 
   const dispatch = useDispatch()
 
-  const handleToggleFavorite = async () => {
+  const handleToggleFavorite = (id) => {
     try {
-      if (!track) {
+      if (!id) {
         throw new Error('Track is undefined')
       }
 
@@ -46,7 +52,8 @@ function PlaylistItem({ track }) {
     
       setLikeColor(isFavoriteNow)
 
-      await toggleFavorite({ id: track.id, isFavorite: isFavoriteNow })
+        // eslint-disable-next-line object-shorthand
+    toggleFavorite({ id: id, isFavorite: !track.isFavorite });
 
       if (isFavoriteNow) {
         dispatch(addFavoriteTrack({ id: track.id }))
@@ -56,7 +63,8 @@ function PlaylistItem({ track }) {
     } catch (err) {
       console.error('Failed to toggle favorite', err)
     }
-  }
+  } 
+
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -114,7 +122,10 @@ function PlaylistItem({ track }) {
               <S.TrackAlbumLink href="http://">{item.album}</S.TrackAlbumLink>
             </S.TrackAlbum>
             <S.TrackTime>
-              <S.SvgIconLike viewBox="0 0 16 14" onClick={handleToggleFavorite}>
+              <S.SvgIconLike
+                viewBox="0 0 16 14"
+                onClick={() => handleToggleFavorite(item.id)}
+              >
                 <S.TriangleLike
                   id={`like-${item.id}`}
                   d="M8.34372 2.25572H8.36529C9.29718 1.44175 11.7563 0.165765 13.9565 1.76734C17.3111 4.20921 14.2458 9.5 8.36529 13H8.34372M8.34378 2.25572H8.32221C7.39032 1.44175 4.93121 0.165765 2.73102 1.76734C-0.623552 4.20921 2.44172 9.5 8.32221 13H8.34378"

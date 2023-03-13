@@ -1,9 +1,9 @@
-import React from 'react';
-import * as S from './MyTrack.styled';
+import React from 'react'
+import * as S from './MyTrack.styled'
 
 function MyTrack({ favoriteTracks }) {
   if (!favoriteTracks) {
-    return <p>No favorite tracks found.</p>;
+    return <p>No favorite tracks found.</p>
   }
 
   return (
@@ -24,10 +24,7 @@ function MyTrack({ favoriteTracks }) {
         <p>No favorite tracks found.</p>
       )}
     </div>
-  );
+  )
 }
 
-
-export default MyTrack;
-
-
+export default MyTrack
